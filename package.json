@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

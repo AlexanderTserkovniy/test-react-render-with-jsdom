@@ -13,13 +13,17 @@ jsdom.env({
   done: function (err, w) {
     window = w;
     document = w.document;
-    const Wrapper = React.createClass({
-      render: function() {
+    const Wrapper = class extends React.Component {
+      render () {
         return React.createElement('section', {}, this.props.children);
       }
-    });
-    const div = React.createElement('div', { className: 'Hey hey!' });
+    };
+    const div = React.createElement('div', { className: 'Hey hey!' }, 'Let it be the text');
     const rendered = ReactAddons.renderIntoDocument(React.createElement(Wrapper, {}, div));
     const result = ReactAddons.findRenderedDOMComponentWithTag(rendered, 'div');
+
+    assert.strictEqual(result.className, 'Hey hey!');
+    assert.strictEqual(result.innerHTML, 'Let it be the text');
+    console.log('\n\n\r\rAll right no errors detected!\n\n');
   }
 });
